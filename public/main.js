@@ -1,6 +1,7 @@
 const socket = io();
 const lines = {};
 const col = Math.random() * 360;
+document.title = "room: " + location.pathname.split("/")[2]
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
