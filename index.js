@@ -3,6 +3,7 @@ const app = express();
 const server = require('http').createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
+require("dotenv").config();
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
@@ -30,4 +31,4 @@ io.on("connection", socket=>{
   })
 })
 
-server.listen(3000, ()=> console.log('server started'));
+server.listen(process.env.PORT||3000, ()=> console.log('server started'));
