@@ -11,7 +11,9 @@ app.set("view engine", "ejs");
 app.get("/room/:id/", (req, res)=>{
   const roomId = req.params.id;
   console.log(roomId)
-  res.render("main")
+  res.render("main", {
+    roomId
+  })
 })
 io.on("connection", socket=>{
   const splitUrl = socket.handshake.headers.referer.split("/");
